@@ -1,77 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Make Believe - Menu</title>
-<style>
-body {
-  background-color: lightblue;
-}
+  <title>Make Believe Restaurant - Food Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: lightblue;
+      margin: 0;
+    }
 
-.header {
-  background-color: dodgerblue;
-  padding: 20px;
-  text-align: center;
-}
+    .header {
+      background-color: dodgerblue;
+      padding: 20px;
+      text-align: center;
+    }
 
-.logo {
-  max-height: 100px;
-  height: auto;
-  width: auto;
-  display: block;
-  margin: 0 auto;
-}
+    .logo {
+      max-height: 100px;
+      height: auto;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-li {
-  float: left;
-}
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #111;
-}
+    .nav-toggle {
+      display: none;
+      background-color: #333;
+      color: white;
+      padding: 14px 16px;
+      font-size: 20px;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
 
-h1 {
-  color: white;
-  text-align: center;
-}
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    li {
+      float: none;
+    }
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    li a:hover {
+      background-color: #111;
+    }
 
-h2 {
-  color: white;
-  text-align: left;
-}
+    h1 {
+      color: white;
+      text-align: center;
+    }
 
-p {
-  font-family: verdana;
-  font-size: 20px;
-}
+    h2 {
+      color: white;
+      text-align: left;
+    }
 
-table, th, td {
-  border:1px solid black;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
+    p {
+      font-family: verdana;
+      font-size: 20px;
+    }
 
-.footer {
-  background-color: #f1f1f1;
-  padding: 10px;
-  text-align: center;
-}
+    table, th, td {
+      border:1px solid black;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
-</style>
+    .footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+    }
+    @media screen and (max-width: 600px){
+      .nav-toggle {
+        display: block;
+      }
+
+    ul {
+      display: none;
+      flex-direction: column;
+    }
+
+    ul.show {
+      display: flex;
+    }
+
+    li {
+      text-align: center;
+    }
+    }
+  </style>
 </head>
 
 <body>
@@ -80,15 +114,18 @@ table, th, td {
   <img src="logo.jpg" alt="Make Believe Restaurant Logo" class="logo">
 </div>
 
-<ul>
+<!-- Hamburger Button -->
+<button class="nav-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- Navigation -->
+<ul id="navbar">
   <li><a href="home.html">Home</a></li>
-  <li><a href="menu.html">Menu</a></li>
+  <li><a href="menu.html">Food Menu</a></li>
   <li><a href="about.html">About/Gallery</a></li>
   <li><a href="contact.html">Contact</a></li>
 </ul>
 
 <h1>Menu</h1>
-<!-- <p>This is a paragraph.</p> -->
 
 <h2>Appetizers</h2>
 
@@ -187,6 +224,13 @@ table, th, td {
   </p>
   <p>Hours: 24/7 </p>
 </div>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navbar");
+    nav.classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
