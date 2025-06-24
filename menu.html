@@ -313,7 +313,9 @@
   const cart = {};
 
   function clear() {
-
+    for (let item in cart) {
+      delete cart[item];
+    }
   }
 
   function addItem {
