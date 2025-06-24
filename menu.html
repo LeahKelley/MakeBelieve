@@ -358,7 +358,19 @@
     totalP.innerHTML = "<strong>Total: $" + total.toFixed(2) + "</strong>";
     cartDiv.appendChild(totalP);
   }
-
+  
+  document.querySelectorAll(".add-to-cart").forEach(elem => {
+    elem.addEventListener("click", () => {
+      const name = elem.getAttribute("data-name");
+      const price = parseFloat(elem.getAttribute("data-price"));
+      if (cart[name]) {
+        cart[name].quantity++;
+      } else {
+        cart[name] = { price: price, quantity: 1 };
+      }
+      updateCart();
+    });
+  });
 </script>
 
 </body>
