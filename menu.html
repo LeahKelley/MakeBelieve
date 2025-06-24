@@ -67,15 +67,17 @@
     h2 {
       color: white;
       text-align: left;
+      padding-left: 10px;
     }
 
     p {
       font-family: verdana;
       font-size: 20px;
+      padding-left: 10px;      
     }
 
     table, th, td {
-      border:1px solid black;
+      border:2px solid black;
       padding-top: 5px;
       padding-bottom: 5px;
       padding-left: 10px;
@@ -278,13 +280,21 @@
       <button 
         class = "add-to-cart" 
         data-name= "Conceptual Cupcake" 
-        data-price = "9.99" >Add To Cart 
+        data-price = "9.99">
+        Add To Cart 
       </button>         
     </td>
     <td>$9.99</td>
     <td>Fluffy but fictional</td>
   </tr>
 </table>
+
+<h2>Your Cart</h2>
+<div id="cart">
+  <p>Your cart is empty.</p>
+</div>
+
+<button onclick="clear()">Clear Cart</button>
 
 <div class="footer">
   <p>
@@ -298,6 +308,20 @@
   function toggleMenu() {
     const nav = document.getElementById("navbar");
     nav.classList.toggle("show");
+  }
+
+  const cart = {};
+
+  function clear() {
+
+  }
+
+  function addItem {
+
+  }
+
+  function removeItem {
+    
   }
 </script>
 
