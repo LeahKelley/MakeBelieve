@@ -294,7 +294,7 @@
   <p>Your cart is empty.</p>
 </div>
 
-<button onclick="clear()">Clear Cart</button>
+<button onclick="clearCart()">Clear Cart</button>
 
 <div class="footer">
   <p>
@@ -312,14 +312,14 @@
 
   const cart = {};
 
-  function clear() {
+  function clearCart() {
     for (let item in cart) {
       delete cart[item];
     }
     updater();
   }
 
-  function removeItem() {
+  function removeItem(name) {
     if (cart[name]) {
       cart[name].quantity--;
       if (cart[name].quantity <= 0) {
@@ -349,10 +349,10 @@
       total += price * qty;
       row.innerHTML = `<td>${item}</td><td>$${price.toFixed(2)}</td><td>${qty}</td><td><button onclick="removeItem('${item}')">X</button></td>`;
     }
-    cartDiv.appendChild(table);
+    cart1.appendChild(table);
     const totalP = document.createElement("p");
     totalP.innerHTML = "<strong>Total: $" + total.toFixed(2) + "</strong>";
-    cartDiv.appendChild(totalP);
+    cart1.appendChild(totalP);
   }
   
   document.querySelectorAll(".add-to-cart").forEach(elem => {
@@ -364,7 +364,7 @@
       } else {
         cart[name] = { price: price, quantity: 1 };
       }
-      updateCart();
+      updater();
     });
   });
 </script>
