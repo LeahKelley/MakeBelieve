@@ -323,6 +323,33 @@
   function removeItem {
     
   }
+
+  function updater {
+    const cart1 = document.getElementById("cart");
+    cart1.innerHTML = "";
+    let total = 0;
+    if (Object.keys(cart).length === 0) {
+      cart1.innerHTML = "<p>Your cart is empty.</p>"
+      return;
+    }
+    const table = document.createElement("table");
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
+    const header = table.insertRow();
+    header.innerHTML = "<th>Item</th><th>Price</th><th>Qty</th><th>Remove</th>";
+    for (const item in cart) {
+      const row = table.insertRow();
+      const price = cart[item].price;
+      const qty = cart[item].quantity;
+      total += price * qty;
+      row.innerHTML = `<td>${item}</td><td>$${price.toFixed(2)}</td><td>${qty}</td><td><button onclick="removeItem('${item}')">X</button></td>`;
+    }
+    cartDiv.appendChild(table);
+    const totalP = document.createElement("p");
+    totalP.innerHTML = "<strong>Total: $" + total.toFixed(2) + "</strong>";
+    cartDiv.appendChild(totalP);
+  }
+
 </script>
 
 </body>
