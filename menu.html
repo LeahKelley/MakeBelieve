@@ -319,7 +319,7 @@
     updater();
   }
 
-  function removeItem {
+  function removeItem() {
     if (cart[name]) {
       cart[name].quantity--;
       if (cart[name].quantity <= 0) {
@@ -329,7 +329,7 @@
     updater();
   }
 
-  function updater {
+  function updater() {
     const cart1 = document.getElementById("cart");
     cart1.innerHTML = "";
     let total = 0;
